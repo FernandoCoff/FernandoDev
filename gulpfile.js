@@ -3,7 +3,6 @@ const htmlmin = require('gulp-htmlmin')
 const sass = require('gulp-sass')(require('sass'))
 const cleanCSS = require('gulp-clean-css')
 const terser = require('gulp-terser')
-const imagemin = require('gulp-imagemin')
 const rename = require('gulp-rename')
 const browserSync = require('browser-sync').create()
 
@@ -19,10 +18,6 @@ const paths = {
   scripts: {
     src: 'src/js/**/*.js',
     dest: 'dist/js/'
-  },
-  images: {
-    src: 'src/assets/img/**/*',
-    dest: 'dist/assets/img/'
   }
 }
 
@@ -38,7 +33,7 @@ function compileSass() {
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(rename({
-      basename: 'style',
+      basename: 'main',
       suffix: '.min'
     }))
     .pipe(gulp.dest(paths.styles.dest))
@@ -53,13 +48,6 @@ function minifyJS() {
     .pipe(browserSync.stream())
 }
 
-function optimizeImages() {
-  return gulp.src(paths.images.src)
-    .pipe(imagemin())
-    .pipe(gulp.dest(paths.images.dest))
-    .pipe(browserSync.stream())
-}
-
 function watchFiles() {
   browserSync.init({
     server: {
@@ -69,15 +57,13 @@ function watchFiles() {
   gulp.watch(paths.html.src, minifyHTML)
   gulp.watch(paths.styles.src, compileSass)
   gulp.watch(paths.scripts.src, minifyJS)
-  gulp.watch(paths.images.src, optimizeImages)
 }
 
-const build = gulp.parallel(minifyHTML, compileSass, minifyJS, optimizeImages)
+const build = gulp.parallel(minifyHTML, compileSass, minifyJS)
 
 exports.minifyHTML = minifyHTML
 exports.sass = compileSass
 exports.minifyJS = minifyJS
-exports.images = optimizeImages
 exports.build = build
 exports.watch = watchFiles
 exports.default = gulp.series(build, watchFiles)
