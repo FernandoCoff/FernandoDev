@@ -1,12 +1,5 @@
 @use 'config.scss';
 
-.header{
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-}
-
 .container{
   &--header{
     padding: 24px 25px;

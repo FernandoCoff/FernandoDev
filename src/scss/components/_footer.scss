@@ -1,0 +1,27 @@
+@use 'config.scss';
+
+#footer{
+  width: 100%;
+  background-image: url('../../assets/img/bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container{
+    &--footer{
+      padding: 24px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p{
+        font-size: 16px;
+        color: config.$color-gray;
+      }
+    }
+  }
+
+}
