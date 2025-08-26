@@ -1,0 +1,29 @@
+ <svg class="background-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <!-- Movimento acelerado -->
+          <animate attributeName="x1" values="0%;10%;0%" dur="30s" repeatCount="indefinite"/>
+          <animate attributeName="x2" values="100%;90%;100%" dur="30s" repeatCount="indefinite"/>
+          <animate attributeName="y1" values="0%;5%;0%" dur="30s" repeatCount="indefinite"/>
+          <animate attributeName="y2" values="0%;10%;0%" dur="30s" repeatCount="indefinite"/>
+
+          <!-- Cores com efeito de flashes mais rápidos -->
+          <stop offset="0%" stop-color="#0A000A">
+            <animate attributeName="stop-color" values="#0A000A;#1C0030;#0A000A" dur="13s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="25%" stop-color="#1C0030">
+            <animate attributeName="stop-color" values="#1C0030;#2E004D;#1C0030" dur="17s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="50%" stop-color="#2E004D">
+            <animate attributeName="stop-color" values="#2E004D;#400066;#2E004D" dur="18s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="75%" stop-color="#400066">
+            <animate attributeName="stop-color" values="#400066;#550080;#400066" dur="17s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stop-color="#550080">
+            <animate attributeName="stop-color" values="#550080;#2E004D;#550080" dur="15s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#darkGradient)" />
+    </svg>

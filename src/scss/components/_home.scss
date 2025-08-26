@@ -1,0 +1,104 @@
+@use 'config.scss';
+
+#home{
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../assets/img/bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -80.8px;
+  padding-top: 80.8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .container{
+    &--home{
+      display: flex;
+      align-items: center;
+
+      .content{
+        width: 60%;
+
+        h1{
+          font-size: 40px;
+          color: config.$color-white;
+          font-weight: 500;
+          line-height: 140%;
+
+          strong{
+            font-weight: 500;
+            color: config.$color-primary;
+          }
+        }
+
+        p{
+          color: config.$color-gray;
+          margin-top: 16px;
+          line-height: 140%;
+          font-size: 24px;
+          height: 67.2px;
+
+          &::after{
+            content: '|';
+            margin-left: 10px;
+            opacity: 1;
+            color: config.$color-primary;
+            animation: cursor 1.2s infinite;
+          }
+
+          @keyframes cursor {
+            0%, 100%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+        }
+        }
+      }
+
+      .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        position: relative;
+
+        img{
+          position: absolute;
+          left: 40%;
+        }
+      }
+
+      @media(max-width: 1200px){
+        .content{
+          width: 70%;
+        }
+
+        .img{
+          width: 30%;
+          img{
+            left: 25%;
+          }
+        }
+      }
+
+      @media(max-width: 767px){
+        .content{
+          width: 100%;
+          h1,p{
+            text-align: center;
+          }
+        }
+
+        .img{
+          display: none;
+        }
+      }
+
+    }
+  }
+}

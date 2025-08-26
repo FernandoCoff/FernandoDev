@@ -1,0 +1,109 @@
+@use 'config.scss';
+
+#skills{
+  width: 100%;
+  min-height: 100vh;
+  background-color: config.$bg-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container{
+    &--skills{
+
+      .title{
+        width: 100%;
+        text-align: center;
+        @media(max-width:1200px){
+          margin: 48px 0;
+        }
+        h2{
+        font-size: 32px;
+        color: config.$color-white;
+        font-weight: 500;
+
+        span{
+          color: config.$color-primary;
+        }
+        }
+
+        p{
+          font-size: 16px;
+          color: config.$color-gray;
+          margin-top: 8px;
+        }
+      }
+
+      .list-skills{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 48px;
+
+        @media(max-width:1200px){
+          grid-template-columns: repeat(2, 1fr);
+          margin: 48px 0;
+        }
+        @media(max-width:800px){
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .skill{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          background-color: config.$bg-main;
+          border: 2px solid config.$bg-border;
+          border-radius: 8px;
+          padding: 18px;
+          transition: .4s;
+
+          &:hover{
+            border-color: config.$color-primary;
+          }
+
+          header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            div{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 16px;
+            }
+
+            .icon{
+              height: 32px;
+              width: 32px;
+              background-color: config.$color-primary;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 8px;
+              i{
+                font-size: 16px;
+                color: config.$color-white;
+              }
+
+            }
+            h4{
+              font-weight: 500;
+              font-size: 16px;
+              color: config.$color-white;
+            }
+
+            span{
+              color: config.$color-gray;
+              font-weight: 500;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
